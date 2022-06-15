@@ -145,7 +145,7 @@ const IndexPage = () => {
 									))}
 								</select>
 							</div>
-							<div className='form-group'>
+							<div style={{}} className='form-group'>
 								<select
 									onChange={(event) => {
 										handleFormChange('media', event.target.value)
