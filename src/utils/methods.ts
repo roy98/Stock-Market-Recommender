@@ -1,6 +1,12 @@
 import { stockSymbols, socialMedias } from './constants'
 import { css } from '@emotion/react'
 
+const MEDIA_MAX_INTERVAL = 5000
+const MEDIA_MIN_INTERVAL = 200
+
+const STOCK_MAX_INTERVAL = 50
+const STOCK_MIN_INTERVAL = 450
+
 const randomize = (min: number, max: number) => {
 	return Math.floor(Math.random() * (max - min + 1) + min)
 }
@@ -13,7 +19,7 @@ const randomStock = () => {
 		for (let dayIndex = 0; dayIndex < 10; dayIndex++) {
 			const date = new Date()
 			date.setDate(date.getDate() - dayIndex)
-			const stockPrice = randomize(50, 450)
+			const stockPrice = randomize(STOCK_MIN_INTERVAL, STOCK_MAX_INTERVAL)
 			const resultItem = { symbol, price: stockPrice, date: date.toLocaleDateString() }
 			stocks.push(resultItem)
 		}
@@ -32,7 +38,7 @@ const randomSocialMediaCount = () => {
 			for (let dayIndex = 0; dayIndex < 10; dayIndex++) {
 				const date = new Date()
 				date.setDate(date.getDate() - dayIndex)
-				const count = randomize(200, 5000)
+				const count = randomize(MEDIA_MIN_INTERVAL, MEDIA_MAX_INTERVAL)
 				const resultItem = { media, symbol: stk, count, date: date.toLocaleDateString() }
 				mediaCounts.push(resultItem)
 			}
@@ -66,18 +72,54 @@ const generateMockData = () => {
 	return { stocks, medias }
 }
 
-const calculateStockRating = (currentItem: any, socialMediaCounts: any[]) => {
+const calculateStockRating = (currentItem: any, socialMediaCounts: any[], stockResult: any[]) => {
 	const currentDateMediaIndex = socialMediaCounts.findIndex((el) => el.date === currentItem.date)
 
+	//Last Index Recommender
+	if (currentDateMediaIndex === socialMediaCounts.length - 1) {
+		if (
+			socialMediaCounts[currentDateMediaIndex].count >
+				socialMediaCounts[currentDateMediaIndex - 1]?.count &&
+			currentItem.price < stockResult[currentDateMediaIndex - 1]?.price
+		) {
+			return 1
+		} else if (
+			socialMediaCounts[currentDateMediaIndex].count <
+				socialMediaCounts[currentDateMediaIndex - 1]?.count &&
+			currentItem.price > stockResult[currentDateMediaIndex - 1]?.price
+		) {
+			return -1
+		} else if (
+			socialMediaCounts[currentDateMediaIndex].count >
+				socialMediaCounts[currentDateMediaIndex - 1]?.count &&
+			currentItem.price > stockResult[currentDateMediaIndex - 1]?.price
+		) {
+			return 0
+		} else {
+			return -1
+		}
+	}
+
+	// Other Index Recommender
 	if (
 		socialMediaCounts[currentDateMediaIndex].count >
-		(socialMediaCounts[currentDateMediaIndex + 1]?.count || 0)
+			socialMediaCounts[currentDateMediaIndex + 1]?.count &&
+		currentItem.price <= stockResult[currentDateMediaIndex - 1]?.price
 	) {
 		return 1
 	} else if (
-		socialMediaCounts[currentDateMediaIndex].count >
-		(socialMediaCounts[currentDateMediaIndex - 1]?.count || 0)
+		socialMediaCounts[currentDateMediaIndex].count <
+			socialMediaCounts[currentDateMediaIndex + 1]?.count &&
+		currentItem.price > stockResult[currentDateMediaIndex + 1]?.price
 	) {
+		return -1
+	} else if (
+		socialMediaCounts[currentDateMediaIndex].count >
+			socialMediaCounts[currentDateMediaIndex + 1]?.count &&
+		currentItem.price > stockResult[currentDateMediaIndex + 1]?.price
+	) {
+		return 0
+	} else {
 		return -1
 	}
 

@@ -55,7 +55,7 @@ const IndexPage = () => {
 	}
 
 	const getRating = (item: any) => {
-		const score = calculateStockRating(item, mediaCounts)
+		const score = calculateStockRating(item, mediaCounts, stockToPreview)
 		return score === 1 ? 'Buy' : score === -1 ? 'Sell' : 'Hold'
 	}
 
@@ -145,7 +145,7 @@ const IndexPage = () => {
 									))}
 								</select>
 							</div>
-							<div style={{}} className='form-group'>
+							<div className='form-group'>
 								<select
 									onChange={(event) => {
 										handleFormChange('media', event.target.value)
