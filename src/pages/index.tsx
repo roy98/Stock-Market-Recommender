@@ -185,7 +185,7 @@ const IndexPage = () => {
 								<thead>
 									<tr id='heading'>
 										<th>Stock</th>
-										<th>Price</th>
+										<th>Price ($)</th>
 										<th>Date</th>
 										<th>Rating</th>
 									</tr>
@@ -194,7 +194,7 @@ const IndexPage = () => {
 									{stockToPreview.map((item: any, index: number) => (
 										<tr key={index}>
 											<td>{item.symbol}</td>
-											<td>{item.price}</td>
+											<td>{item.price}$</td>
 											<td>{item.date}</td>
 											<td>
 												<strong>{getRating(item)}</strong>

@@ -34,7 +34,7 @@ const LineChart = ({ stockData }: any) => {
 					x: transformedData.extractedDate,
 					y: transformedData.extractedPrice,
 					type: 'scatter',
-					hovertemplate: `%{y}`
+					hovertemplate: `%{y} $`
 				}
 			]}
 			layout={{ height: 500, title: 'Stock market graph' }}
