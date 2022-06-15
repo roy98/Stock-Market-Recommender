@@ -4,6 +4,10 @@ import Plot from 'react-plotly.js'
 const LineChart = ({ stockData }: any) => {
 	const [transformedData, setTransfromedData] = useState<any>({})
 
+	const getX = (x: any) => {
+		console.log(x)
+	}
+
 	const handleTransformStockData = () => {
 		if (!stockData) return
 
@@ -29,10 +33,11 @@ const LineChart = ({ stockData }: any) => {
 				{
 					x: transformedData.extractedDate,
 					y: transformedData.extractedPrice,
-					type: 'scatter'
+					type: 'scatter',
+					hovertemplate: `%{y}`
 				}
 			]}
-			layout={{ width: 1000, height: 500, title: 'Stock market graph' }}
+			layout={{ height: 500, title: 'Stock market graph' }}
 		/>
 	)
 }

@@ -22,10 +22,11 @@ select {
 	box-sizing: border-box;
 }
 
-#table-stock {
+.table-container {
 	margin-top: 40px;
-	/* display: flex;
-	justify-content: center; */
+}
+
+#table-stock {
 	font-family: Arial, Helvetica, sans-serif;
 	border-collapse: collapse;
 	width: 100%;
@@ -51,4 +52,33 @@ th {
 	text-align: left;
 	background-color: #313132;
 	color: white;
+}
+
+button.danger,
+button.success {
+	width: 140px;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+button.danger {
+	background-color: #b41313;
+}
+
+button.danger:hover {
+	background-color: #8c0d0d;
+}
+
+button.success {
+	background-color: #4caf50;
+}
+
+button.success:hover {
+	background-color: #45a049;
 }

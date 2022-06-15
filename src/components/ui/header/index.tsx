@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { PageProps } from 'gatsby'
 import styled from '@emotion/styled'
 import './__utils.css'
-import StockImage from '../../../images/nav_image.jpg'
+import StockImage from '@images/nav_image.jpg'
 
 const CustomHeader = styled.header`
 	top: 0;
@@ -12,7 +12,7 @@ const CustomHeader = styled.header`
 
 const Header: FC = () => {
 	return (
-		<CustomHeader>
+		<CustomHeader role={'navigation'}>
 			<div className='imgContainer'>
 				<img src={StockImage} alt='stock picture' />
 				<div className='text-descr'>

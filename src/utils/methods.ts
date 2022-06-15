@@ -42,6 +42,23 @@ const randomSocialMediaCount = () => {
 	return mediaCounts
 }
 
+const generateUniqueSocialMediaCount = (media: string, appStockSymbols: any) => {
+	const mediaCounts = []
+
+	for (let stock = 0; stock < appStockSymbols.length; stock++) {
+		const stk = appStockSymbols[stock]
+		for (let dayIndex = 0; dayIndex < 10; dayIndex++) {
+			const date = new Date()
+			date.setDate(date.getDate() - dayIndex)
+			const count = randomize(200, 5000)
+			const resultItem = { media, symbol: stk, count, date: date.toLocaleDateString() }
+			mediaCounts.push(resultItem)
+		}
+	}
+
+	return mediaCounts
+}
+
 const generateMockData = () => {
 	const stocks = randomStock()
 	const medias = randomSocialMediaCount()
@@ -87,4 +104,10 @@ function assign<T, U>(target: T, source: U): asserts target is T & U {
 	Object.assign(target, source)
 }
 
-export { generateMockData, makeClasses, joinClasses, calculateStockRating }
+export {
+	generateMockData,
+	makeClasses,
+	joinClasses,
+	calculateStockRating,
+	generateUniqueSocialMediaCount
+}
