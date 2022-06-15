@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> renders snapshot correctly 1`] = `
+Array [
+  <style
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": ".css-nw5dpg{top:0;height:auto;width:100%;}",
+      }
+    }
+    data-emotion="css nw5dpg"
+  />,
+  <header
+    className="css-nw5dpg"
+    role="navigation"
+  >
+    <div
+      className="imgContainer"
+    >
+      <img
+        alt="stock picture"
+        src=""
+      />
+      <div
+        className="text-descr"
+      >
+        <h2>
+          Stock Rating App
+        </h2>
+        <small>
+          Get your market stock ratings here!
+        </small>
+      </div>
+    </div>
+  </header>,
+]
+`;

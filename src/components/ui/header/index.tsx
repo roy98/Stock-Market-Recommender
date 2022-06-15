@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { PageProps } from 'gatsby'
 import styled from '@emotion/styled'
 import './__utils.css'
-import StockImage from '@images/nav_image.jpg'
+import { StockImage } from '@images/images'
 
 const CustomHeader = styled.header`
 	top: 0;
