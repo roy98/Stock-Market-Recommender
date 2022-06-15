@@ -1,0 +1,33 @@
+{
+  "name": "stock-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "stock-app",
+  "author": "Roy Christo",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "gatsby": "^4.16.0",
+    "gatsby-plugin-manifest": "^4.16.0",
+    "gatsby-plugin-sass": "^5.16.0",
+    "gatsby-plugin-sitemap": "^5.16.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "sass": "^1.52.3"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.42",
+    "@types/react": "^18.0.12",
+    "@types/react-dom": "^18.0.5",
+    "typescript": "^4.7.3"
+  }
+}
