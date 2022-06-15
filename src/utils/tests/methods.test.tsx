@@ -9,12 +9,12 @@ const fakeDateGenerator = (index: number) => {
 
 describe('methods.ts', () => {
 	describe('calculateStockRating', () => {
-		it('should return 1 to buy', () => {
+		it('should return -1 to buy', () => {
 			const currentItem = { symbol: 'DFS', price: 78, date: new Date().toLocaleDateString() }
 			const mockSymbol = [
 				{ symbol: 'DFS', price: 100, date: fakeDateGenerator(0) },
-				{ symbol: 'DFS', price: 100, date: fakeDateGenerator(1) },
-				{ symbol: 'DFS', price: 100, date: fakeDateGenerator(2) }
+				{ symbol: 'DFS', price: 80, date: fakeDateGenerator(1) },
+				{ symbol: 'DFS', price: 120, date: fakeDateGenerator(2) }
 			]
 			const mockData = generateUniqueSocialMediaCount('DFS', ['Twitter'])
 			mockData[mockData.length - 1].count = 200
@@ -22,7 +22,7 @@ describe('methods.ts', () => {
 
 			const actual = calculateStockRating(currentItem, mockData, mockSymbol)
 
-			expect(actual).toBeInstanceOf(Number)
+			expect(actual).toBe(-1)
 		})
 	})
 })
