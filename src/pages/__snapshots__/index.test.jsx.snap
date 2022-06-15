@@ -1,0 +1,183 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> renders snapshot 1`] = `
+<div>
+  <title>
+    Rating Stock
+  </title>
+  <style
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": ".css-nw5dpg{top:0;height:auto;width:100%;}",
+      }
+    }
+    data-emotion="css nw5dpg"
+  />
+  <header
+    className="css-nw5dpg"
+    role="navigation"
+  >
+    <div
+      className="imgContainer"
+    >
+      <img
+        alt="stock picture"
+        src=""
+      />
+      <div
+        className="text-descr"
+      >
+        <h2>
+          Stock Rating App
+        </h2>
+        <small>
+          Get your market stock ratings here!
+        </small>
+      </div>
+    </div>
+  </header>
+  <main
+    style={
+      Object {
+        "color": "#232129",
+        "padding": 96,
+      }
+    }
+  >
+    <section>
+      <form
+        className="stock-form"
+      >
+        <div
+          className="form-group"
+        >
+          <select
+            id="symbol"
+            name="symbol"
+            onChange={[Function]}
+          >
+            <option
+              value=""
+            >
+              Choose a symbol
+            </option>
+            <option
+              value="GSM"
+            >
+              GSM
+            </option>
+            <option
+              value="URD"
+            >
+              URD
+            </option>
+            <option
+              value="LMS"
+            >
+              LMS
+            </option>
+            <option
+              value="CCA"
+            >
+              CCA
+            </option>
+          </select>
+        </div>
+        <div
+          className="form-group"
+        >
+          <select
+            id="media"
+            name="media"
+            onChange={[Function]}
+          >
+            <option
+              value="Twitter"
+            >
+              Twitter
+            </option>
+            <option
+              value="Facebook"
+            >
+              Facebook
+            </option>
+          </select>
+          <button
+            className="danger"
+            onClick={[Function]}
+          >
+            Delete Media
+          </button>
+        </div>
+        <div
+          className="form-group"
+        >
+          <input
+            disabled={true}
+            type="date"
+            value="2022-05-15"
+          />
+        </div>
+      </form>
+      <div
+        className="table-container"
+      >
+        <form>
+          <div
+            className="form-group"
+          >
+            <input
+              onChange={[Function]}
+              placeholder="Create a media"
+              type="text"
+              value=""
+            />
+            <button
+              className="success"
+              onClick={[Function]}
+            >
+              Add new media
+            </button>
+          </div>
+        </form>
+        <table
+          id="table-stock"
+        >
+          <thead>
+            <tr
+              id="heading"
+            >
+              <th>
+                Stock
+              </th>
+              <th>
+                Price ($)
+              </th>
+              <th>
+                Date
+              </th>
+              <th>
+                Rating
+              </th>
+            </tr>
+          </thead>
+          <tbody />
+        </table>
+      </div>
+      <div
+        style={
+          Object {
+            "display": "flex",
+            "justifyContent": "center",
+            "marginTop": "50px",
+          }
+        }
+      >
+        <div>
+          MockedChart
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+`;
