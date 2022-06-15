@@ -12,6 +12,7 @@ const config: GatsbyConfig = {
 	plugins: [
 		'gatsby-plugin-sass',
 		'gatsby-plugin-sitemap',
+		'gatsby-plugin-emotion',
 		{
 			resolve: 'gatsby-plugin-manifest',
 			options: {
